@@ -43,7 +43,3 @@ pub fn get_sodium_style_screen() -> Layout {
         scrolling_list: vec![], // Populated at runtime
     }
 }
-
-pub fn init() {
-    println!("Sodium Style 1:1 initialized for Horizon");
-}
