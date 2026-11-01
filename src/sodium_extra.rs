@@ -41,10 +41,3 @@ pub fn apply_particle_filtering(config: &SodiumExtraConfig) {
         println!("Applying hardened particle filtering (Sodium Extra)");
     }
 }
-
-pub fn init() {
-    let config = SodiumExtraConfig::default();
-    apply_fog_settings(&config);
-    apply_particle_filtering(&config);
-    println!("Sodium Extra 1:1 port complete");
-}
