@@ -1,0 +1,31 @@
+[package]
+name = "sodium-rust-horizon"
+version = "0.1.0"
+edition = "2021"
+authors = ["brzoskabartlomiej-cpu"]
+description = "Sodium mod ported to Horizon launcher (Rust) with Sodium Extra support"
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# Horizon API dependencies (based on Horizon PR #5706 and docs)
+horizon-api = { version = "0.1", optional = true }
+horizon-style = { path = "src/sodium_style", optional = true }
+
+# Sodium Extra dependencies (logic for fog, clouds, etc.)
+sodium-extra = { path = "src/sodium_extra", optional = true }
+
+# Standard Rust dependencies for performance/rendering
+bitflags = "2.4"
+serde = { version = "1.0", features = ["derive"] }
+
+[features]
+default = ["horizon-api", "horizon-style", "sodium-extra"]
+horizon-native = ["horizon-api"]
+
+[workspace]
+members = [
+    "src/sodium_style",
+    "src/sodium_extra",
+]
